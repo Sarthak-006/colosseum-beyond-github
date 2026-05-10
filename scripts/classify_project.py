@@ -14,6 +14,7 @@ import argparse
 import json
 import re
 import sys
+from pathlib import Path
 from typing import Any
 
 
@@ -154,7 +155,18 @@ def main() -> int:
         print("Provide exactly one of --json or --file", file=sys.stderr)
         return 2
 
-    raw = args.json if args.json else open(args.file, encoding="utf-8").read()
+    if args.json:
+        raw = args.json
+    else:
+        path = Path(args.file)
+        try:
+            raw = path.read_text(encoding="utf-8")
+        except FileNotFoundError:
+            print(f"File not found: {path}", file=sys.stderr)
+            return 2
+        except OSError as exc:
+            print(f"Could not read file: {exc}", file=sys.stderr)
+            return 2
     try:
         data = json.loads(raw)
     except json.JSONDecodeError as e:

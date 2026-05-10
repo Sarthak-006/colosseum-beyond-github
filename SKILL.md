@@ -1,20 +1,16 @@
 ---
 name: colosseum-beyond-github
-description: >-
-  Colosseum hackathon projects should not die on GitHub alone—give them social
-  presence and paths to real users. Turns Solana and Colosseum Arena submissions
-  into socially discoverable products with X/Twitter positioning, narrative
-  strategy, ecosystem insertion, and launch playbooks. Use when a founder is
-  tired of repo-only visibility and wants audience and adoption beyond stars,
-  when launching or growing a Colosseum or Solana hackathon project, when
-  comparing against Arena winners and honorable mentions, when crafting story
-  angles, 30-day content plans, Spaces/AMA targets, engagement and quote-tweet
-  strategy, or when answering "why should crypto Twitter care?"
+description: Colosseum hackathon projects should not die on GitHub alone - give them social presence and paths to real users. Turns Solana and Colosseum Arena submissions into socially discoverable products with X/Twitter positioning, narrative strategy, ecosystem insertion, and launch playbooks. Use when a founder wants audience beyond repo stars, when launching or growing a Colosseum or Solana hackathon project, when comparing Arena winners and honorable mentions, when crafting story angles, 30-day content plans, Spaces/AMA targets, engagement strategy, or when answering why crypto Twitter should care.
+license: MIT
+compatibility: Python 3.x optional for scripts/ helpers (stdlib only). Browser or web fetch recommended for live Arena and Colosseum pages.
+metadata:
+  repository: https://github.com/Sarthak-006/colosseum-beyond-github
+  version: "1.0.0"
 ---
 
 # Colosseum Beyond GitHub
 
-Your Colosseum build **does not have to live only on GitHub**. This skill is an **ecosystem-aware founder growth strategist** for builders who want **real trial and attention**, not just commits—optimized for **cultural legibility on Solana**: narrative fit, distribution, and repeatable social systems.
+Your Colosseum build **does not have to live only on GitHub**. This skill is an **ecosystem-aware founder growth strategist** for builders who want **real trial and attention**, not just commits - optimized for **cultural legibility on Solana**: narrative fit, distribution, and repeatable social systems.
 
 ## When to apply
 
@@ -199,3 +195,10 @@ On Unix shells you may use `--json '{...}'` instead of `--file`. For `narrative_
 Stdlib only. Agent may run or skip; **judgment stays in the model**.
 
 Invoke with: **Follow `colosseum-beyond-github` / Colosseum Beyond GitHub**.
+
+## Maintainer preflight (before every release)
+
+- Run `npx skills-ref validate .` from the repository root and confirm output includes **Valid skill**.
+- Smoke-test helpers: `python scripts/classify_project.py --file scripts/example-project.json` then pipe or copy `primary_category` into `example-narrative.json` if you change categories.
+- Keep `name` identical to the GitHub repository name and parent install folder (`colosseum-beyond-github`). Do not rename the repo without updating `name` and `metadata.repository`.
+- Never commit secrets (API keys, tokens). This skill only references public Colosseum and Arena URLs.

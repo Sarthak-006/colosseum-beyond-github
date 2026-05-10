@@ -1,6 +1,6 @@
 {
   "name": "CohortPing",
-  "description": "Colosseum Arena MVP: small-group trader alerts—README is polished but repo-only traction, almost no one completes the demo funnel.",
+  "description": "Colosseum Arena MVP: small-group trader alerts - README is polished but repo-only traction, almost no one completes the demo funnel.",
   "audience": "Active Solana traders and Arena judges who should try the flow",
   "stack": "TypeScript, Next.js, Solana web3.js",
   "team_background": "First-time Arena team; strong ship speed, weak distribution"

@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from pathlib import Path
 from typing import Any
 
 
@@ -93,7 +94,18 @@ def main() -> int:
     g.add_argument("--json", help="JSON string with primary_category and optional team_voice")
     g.add_argument("--file", help="Path to JSON file with same keys")
     args = parser.parse_args()
-    raw = args.json if args.json else open(args.file, encoding="utf-8").read()
+    if args.json:
+        raw = args.json
+    else:
+        path = Path(args.file)
+        try:
+            raw = path.read_text(encoding="utf-8")
+        except FileNotFoundError:
+            print(f"File not found: {path}", file=sys.stderr)
+            return 2
+        except OSError as exc:
+            print(f"Could not read file: {exc}", file=sys.stderr)
+            return 2
     try:
         data: dict[str, Any] = json.loads(raw)
     except json.JSONDecodeError as e:
